@@ -1,4 +1,4 @@
----- Inserir valores na tabela TIMELESS_PROGRAMA
+-- Inserir valores na tabela TIMELESS_PROGRAMA
 --INSERT INTO TIMELESS_PROGRAMA (idprograma, titulo, anolancamento, diretor, elenco, sinopse, duracao, idempresa)
 --VALUES
 --    (1, 'Tom and Jerry', '1940-02-10', 'William Hanna', 'William Hanna, Mel Blanc', 'Tom and Jerry is a classic animated series featuring the comedic rivalry between Tom the cat and Jerry the mouse.', 10, 1),
@@ -29,7 +29,7 @@
 
 
 
--- Inserir valores na tabela TIMELESS_FUNCIONARIO
+---- Inserir valores na tabela TIMELESS_FUNCIONARIO
 --INSERT INTO TIMELESS_FUNCIONARIO (idFuncionario, nome, apelido, contacto, email, sexo, dataNascimento)
 --VALUES
 --    (1, 'John', 'Doe', '123456789', 'john.doe@example.com', 'Masculino', '1990-01-01'),
@@ -65,18 +65,92 @@
 
 ------ Inserir valores na tabela TIMELESS_CONTA
 
-INSERT INTO TIMELESS_CONTA (idconta, nome, apelido, datadeNascimento, email, password, progsFavoritos, tipoSubscricao, idFuncionario)
-VALUES
-    (1, 'João Silva', 'Jota', '1990-01-15', 'joao.silva@example.com', 'senha123', '1,2,3', 'Premium', 1),
-    (2, 'Maria Santos', 'Mary', '1985-05-20', 'maria.santos@example.com', 'abc456', '4,5', 'Free', 2),
-    (3, 'Pedro Almeida', 'Pepe', '1998-12-02', 'pedro.almeida@example.com', 'qwerty', '2,3', 'Premium', 3),
-    (4, 'Ana Costa', 'Aninha', '1992-07-10', 'ana.costa@example.com', 'senha456', '1,4', 'Free', 4),
-    (5, 'Carlos Oliveira', 'Carlinhos', '1995-03-28', 'carlos.oliveira@example.com', 'abc123', '3,5', 'Premium', 5);
+--INSERT INTO TIMELESS_CONTA (idconta, nome, apelido, datadeNascimento, email, password, progsFavoritos, tipoSubscricao, idFuncionario)
+--VALUES
+--    (1, 'João Silva', 'Jota', '1990-01-15', 'joao.silva@example.com', 'senha123', '1,2,3', 'Premium', 1),
+--    (2, 'Maria Santos', 'Mary', '1985-05-20', 'maria.santos@example.com', 'abc456', '4,5', 'Free', 2),
+--    (3, 'Pedro Almeida', 'Pepe', '1998-12-02', 'pedro.almeida@example.com', 'qwerty', '2,3', 'Premium', 3),
+--    (4, 'Ana Costa', 'Aninha', '1992-07-10', 'ana.costa@example.com', 'senha456', '1,4', 'Free', 4),
+--    (5, 'Carlos Oliveira', 'Carlinhos', '1995-03-28', 'carlos.oliveira@example.com', 'abc123', '3,5', 'Premium', 5);
 
-INSERT INTO TIMELESS_SUBSCRICAO (tiposubscricao, valorMensalidade, idConta)
-VALUES
-    ('Premium', 20, 1),
-    ('Free', 10, 2),
-    ('Premium', 20, 3),
-    ('Free', 10, 4),
-    ('Premium', 20, 5);
+---- Inserir valores na tabela TIMELESS_SUBSCRICAO
+
+--INSERT INTO TIMELESS_SUBSCRICAO (tiposubscricao, valorMensalidade, idConta)
+--VALUES
+--    ('Premium', 20, 1),
+--    ('Free', 10, 2),
+--    ('Premium', 20, 3),
+--    ('Free', 10, 4),
+--    ('Premium', 20, 5);
+---- Inserir valores na tabela TIMELESS_PAGAMENTO
+
+
+----INSERT INTO TIMELESS_PAGAMENTO (clienteId, valorPago, dataPagamento) VALUES
+--(1, 500, '2021-09-01'),
+--(2, 250, '2021-09-03'),
+--(3, 1000, '2021-09-05'),
+--(4, 750, '2021-09-07'),
+--(5, 1250, '2021-09-09');
+
+
+----Inserir valores na tabela TIMELESS_METODOPAGAMENTO
+--INSERT INTO TIMELESS_METODOPAGAMENTO(metodoPagamento) VALUES
+--('MBway'),
+--('Credit Card'),
+--('Paypal'),
+--('Multibanco');
+
+---- Inserir valores na tabela TIMELESS_PAISES
+--INSERT INTO TIMELESS_PAISES (codigoPaisID, nome, lingua, moeda)
+--VALUES
+--(1, 'United States', 'English', 'USD'),
+--(2, 'Canada', 'English, French', 'CAD'),
+--(3, 'Mexico', 'Spanish', 'MXN'),
+--(4, 'United Kingdom', 'English', 'GBP'),
+--(5, 'Japan', 'Japanese', 'JPY');
+
+----Inserir valores na tabela TIMELESS_SOUNDTRACK
+--INSERT INTO TIMELESS_SOUNDTRACK VALUES (1, 101, 201);
+--INSERT INTO TIMELESS_SOUNDTRACK VALUES (1, 102, 202);
+--INSERT INTO TIMELESS_SOUNDTRACK VALUES (2, 103, 203);
+--INSERT INTO TIMELESS_SOUNDTRACK VALUES (2, 104, 204);
+--INSERT INTO TIMELESS_SOUNDTRACK VALUES (3, 105, 205);
+
+----Inserir valores na tabela TIMELESS_MUSICA
+
+--INSERT INTO TIMELESS_MUSICA (idMusica, titulo, artista, compositor, gravadora)
+--VALUES
+--	(1, 'Bohemian Rhapsody', 'Queen', 'Freddie Mercury', 'EMI'),
+--	(2, 'Stairway to Heaven', 'Led Zeppelin', 'Jimmy Page and Robert Plant', 'Atlantic Records'),
+--	(3, 'Imagine', 'John Lennon', 'John Lennon', 'Apple Records'),
+--	(4, 'Hotel California', 'Eagles', 'Don Felder, Glenn Frey and Don Henley', 'Asylum Records'),
+--	(5, 'Smells Like Teen Spirit', 'Nirvana', 'Kurt Cobain', 'Sub Pop'),
+--	(6, 'Sweet Child O'' Mine', 'Guns N'' Roses', 'Axl Rose, Slash, Izzy Stradlin, Duff McKagan and Steven Adler', 'Geffen Records'),
+--	(7, 'Like a Rolling Stone', 'Bob Dylan', 'Bob Dylan', 'Columbia Records'),
+--	(8, 'Hey Jude', 'The Beatles', 'John Lennon and Paul McCartney', 'Apple Records'),
+--	(9, 'Billie Jean', 'Michael Jackson', 'Michael Jackson', 'Epic Records'),
+--	(10, 'My Generation', 'The Who', 'Pete Townshend', 'Brunswick Records');
+
+------Inserir valores na tabela TIMELESS_IDIOMAS
+--INSERT INTO TIMELESS_IDIOMAS (ingles, portugues, espanhol, italiano, mandarim, frances, alemao, idprograma)
+--VALUES
+--('Sim', 'Nao', 'Sim', 'Nao', 'Sim', 'Nao', 'Nao', 1),
+--('Sim', 'Sim', 'Nao', 'Nao', 'Sim', 'Nao', 'Sim', 2),
+--('Nao', 'Sim', 'Sim', 'Sim', 'Nao', 'Sim', 'Nao', 3),
+--('Sim', 'Nao', 'Nao', 'Sim', 'Nao', 'Sim', 'Sim', 4),
+--('Nao', 'Sim', 'Nao', 'Nao', 'Sim', 'Sim', 'Nao', 5);
+
+---- Inserir valores na tabela TIMELESS_EXIBIDOEM 
+--INSERT INTO TIMELESS_EXIBIDOEM (ingles, idPrograma)
+--VALUES ('Sim', 1),
+--       ('Sim', 2),
+--       ('Nao', 3);
+
+--- Inserir valores na tabela TIMELESS_ALLOWEDIN
+--INSERT INTO TIMELESS_ALLOWEDIN (codigoPaisID, idPrograma)
+--VALUES (1, 101), (2, 101), (2, 102);
+
+
+---- Inserir valores na tabela TIMELESS_SOUNDTRACKTEM
+--INSERT INTO TIMELESS_SOUNDTRACKTEM (idMusica, codigoSoundTrack)
+--VALUES (1, 100), (2, 101), (3, 102);
