@@ -1,4 +1,4 @@
--- Inserir valores na tabela TIMELESS_PROGRAMA
+-- --Inserir valores na tabela TIMELESS_PROGRAMA
 --INSERT INTO TIMELESS_PROGRAMA (idprograma, titulo, anolancamento, diretor, elenco, sinopse, duracao, idempresa)
 --VALUES
 --    (1, 'Tom and Jerry', '1940-02-10', 'William Hanna', 'William Hanna, Mel Blanc', 'Tom and Jerry is a classic animated series featuring the comedic rivalry between Tom the cat and Jerry the mouse.', 10, 1),
@@ -32,16 +32,16 @@
 ---- Inserir valores na tabela TIMELESS_FUNCIONARIO
 --INSERT INTO TIMELESS_FUNCIONARIO (idFuncionario, nome, apelido, contacto, email, sexo, dataNascimento)
 --VALUES
---    (1, 'John', 'Doe', '123456789', 'john.doe@example.com', 'Masculino', '1990-01-01'),
---    (2, 'Jane', 'Smith', '987654321', 'jane.smith@example.com', 'Feminino', '1990-02-02'),
---    (3, 'Michael', 'Johnson', '555555555', 'michael.johnson@example.com', 'Masculino', '1990-03-03'),
---    (4, 'Emily', 'Brown', '999999999', 'emily.brown@example.com', 'Feminino', '1990-04-04'),
---    (5, 'Robert', 'Miller', '111111111', 'robert.miller@example.com', 'Masculino', '1990-05-05'),
---    (6, 'Olivia', 'Davis', '444444444', 'olivia.davis@example.com', 'Feminino', '1990-06-06'),
---    (7, 'William', 'Wilson', '777777777', 'william.wilson@example.com', 'Masculino', '1990-07-07'),
---    (8, 'Sophia', 'Moore', '222222222', 'sophia.moore@example.com', 'Feminino', '1990-08-08'),
---    (9, 'David', 'Taylor', '888888888', 'david.taylor@example.com', 'Masculino', '1990-09-09'),
---    (10, 'Isabella', 'Anderson', '333333333', 'isabella.anderson@example.com', 'Feminino', '1990-10-10');
+--    (1, 'John', 'Doe', '123456789', 'john.doe@example.com', 'M', '1990-01-01'),
+--    (2, 'Jane', 'Smith', '987654321', 'jane.smith@example.com', 'F', '1990-02-02'),
+--    (3, 'Michael', 'Johnson', '555555555', 'michael.johnson@example.com', 'M', '1990-03-03'),
+--    (4, 'Emily', 'Brown', '999999999', 'emily.brown@example.com', 'F', '1990-04-04'),
+--    (5, 'Robert', 'Miller', '111111111', 'robert.miller@example.com', 'M', '1990-05-05'),
+--    (6, 'Olivia', 'Davis', '444444444', 'olivia.davis@example.com', 'F', '1990-06-06'),
+--    (7, 'William', 'Wilson', '777777777', 'william.wilson@example.com', 'M', '1990-07-07'),
+--    (8, 'Sophia', 'Moore', '222222222', 'sophia.moore@example.com', 'F', '1990-08-08'),
+--    (9, 'David', 'Taylor', '888888888', 'david.taylor@example.com', 'M', '1990-09-09'),
+--    (10, 'Isabella', 'Anderson', '333333333', 'isabella.anderson@example.com', 'F', '1990-10-10');
 
 
 ---- Inserir valores na tabela TIMELESS_EPISODIO
@@ -55,46 +55,55 @@
 
 
 ------ Inserir valores na tabela TIMELESS_EPISODIO
---INSERT INTO TIMELESS_AVALIACAO (idavaliacao, userContaQueAvaliou, data, classificacao, idConta, idprograma)
+--INSERT INTO TIMELESS_AVALIACAO (idavaliacao, userContaQueAvaliou, data, classificacao, idprograma)
 --VALUES
---    (1, 'João', '2023-05-01', 5, 1, 1),
---    (2, 'Maria', '2023-05-02', 4, 2, 1),
---    (3, 'Pedro', '2023-05-03', 3, 3, 2),
---    (4, 'Ana', '2023-05-04', 2, 1, 2),
---    (5, 'Carlos', '2023-05-05', 1, 2, 3);
+--    (1, 'João', '2023-05-01', 5, 1),
+--    (2, 'Maria', '2023-05-02', 4, 1),
+--    (3, 'Pedro', '2023-05-03', 3, 2),
+--    (4, 'Ana', '2023-05-04', 2, 2),
+--    (5, 'Carlos', '2023-05-05', 1,3);
+
+---porque o idConta é IDENTITY(1,1)
 
 ------ Inserir valores na tabela TIMELESS_CONTA
 
---INSERT INTO TIMELESS_CONTA (idconta, nome, apelido, datadeNascimento, email, password, progsFavoritos, tipoSubscricao, idFuncionario)
+--INSERT INTO TIMELESS_CONTA (nome, apelido, datadeNascimento, email, palPasse, progsFavoritos, idFuncionario)
 --VALUES
---    (1, 'João Silva', 'Jota', '1990-01-15', 'joao.silva@example.com', 'senha123', '1,2,3', 'Premium', 1),
---    (2, 'Maria Santos', 'Mary', '1985-05-20', 'maria.santos@example.com', 'abc456', '4,5', 'Free', 2),
---    (3, 'Pedro Almeida', 'Pepe', '1998-12-02', 'pedro.almeida@example.com', 'qwerty', '2,3', 'Premium', 3),
---    (4, 'Ana Costa', 'Aninha', '1992-07-10', 'ana.costa@example.com', 'senha456', '1,4', 'Free', 4),
---    (5, 'Carlos Oliveira', 'Carlinhos', '1995-03-28', 'carlos.oliveira@example.com', 'abc123', '3,5', 'Premium', 5);
+--    ('João Silva', 'Jota', '1990-01-15', 'joao.silva@example.com', 'senha123', '1,2,3', 1),
+--    ('Maria Santos', 'Mary', '1985-05-20', 'maria.santos@example.com', 'abc456', '4,5', 2),
+--    ('Pedro Almeida', 'Pepe', '1998-12-02', 'pedro.almeida@example.com', 'qwerty', '2,3', 3),
+--    ('Ana Costa', 'Aninha', '1992-07-10', 'ana.costa@example.com', 'senha456', '1,4', 4),
+--    ('Carlos Oliveira', 'Carlinhos', '1995-03-28', 'carlos.oliveira@example.com', 'abc123', '3,5', 5),
+--    ('Mariana Ferreira', 'Mari', '1994-09-18', 'mariana.ferreira@example.com', 'senha789', '2,4,5', 6),
+--    ('Rui Santos', 'Ruizinho', '1988-04-05', 'rui.santos@example.com', 'abc789', '1,3', 7),
+--    ('Sara Costa', 'Sarinha', '2000-01-20', 'sara.costa@example.com', 'senha890', '2,4', 8),
+--    ('António Pereira', 'Toninho', '1996-11-15', 'antonio.pereira@example.com', 'qwerty123', '2,3,5', 9),
+--    ('Marta Rodrigues', 'Martinha', '1999-07-22', 'marta.rodrigues@example.com', 'abc456def', '1,4,5', 10);
+----Quando tem o IDENTITY(1,1) não é preciso colocar o idConta
 
 ---- Inserir valores na tabela TIMELESS_SUBSCRICAO
 
---INSERT INTO TIMELESS_SUBSCRICAO (tiposubscricao, valorMensalidade, idConta)
+--INSERT INTO TIMELESS_SUBSCRICAO (tiposubscricao, valorMensalidade)
 --VALUES
---    ('Premium', 20, 1),
---    ('Free', 10, 2),
---    ('Premium', 20, 3),
---    ('Free', 10, 4),
---    ('Premium', 20, 5);
+--    ('Premium', 20),
+--    ('Standard', 10),
+--    ('Premium', 20),
+--    ('Standard', 10),
+--    ('Premium', 20);
+
+----porque idConta é IDENTITY(1,1)
+
 ---- Inserir valores na tabela TIMELESS_PAGAMENTO
 
+----inserir valores na tabela TIMELESS_PAGAMENTO
+--INSERT INTO TIMELESS_PAGAMENTO (idCliente, valorPago, dataPagamento,metodoId) VALUES
+--(1, 500, '2021-09-01',1),
+--(2, 250, '2021-09-03',2),
+--(3, 1000, '2021-09-05',3),
+--(4, 750, '2021-09-07',4);
 
-----INSERT INTO TIMELESS_PAGAMENTO (clienteId, valorPago, dataPagamento) VALUES
---(1, 500, '2021-09-01'),
---(2, 250, '2021-09-03'),
---(3, 1000, '2021-09-05'),
---(4, 750, '2021-09-07'),
---(5, 1250, '2021-09-09');
-
-
-----Inserir valores na tabela TIMELESS_METODOPAGAMENTO
---INSERT INTO TIMELESS_METODOPAGAMENTO(metodoPagamento) VALUES
+--Inserir valores na tabela TIMELESS_METODOPAGAMENTO
+--INSERT INTO TIMELESS_METODOPAGAMENTO(descricao) VALUES
 --('MBway'),
 --('Credit Card'),
 --('Paypal'),
@@ -109,14 +118,22 @@
 --(4, 'United Kingdom', 'English', 'GBP'),
 --(5, 'Japan', 'Japanese', 'JPY');
 
-----Inserir valores na tabela TIMELESS_SOUNDTRACK
---INSERT INTO TIMELESS_SOUNDTRACK VALUES (1, 101, 201);
---INSERT INTO TIMELESS_SOUNDTRACK VALUES (1, 102, 202);
---INSERT INTO TIMELESS_SOUNDTRACK VALUES (2, 103, 203);
---INSERT INTO TIMELESS_SOUNDTRACK VALUES (2, 104, 204);
---INSERT INTO TIMELESS_SOUNDTRACK VALUES (3, 105, 205);
 
-----Inserir valores na tabela TIMELESS_MUSICA
+--Inserir valores na tabela TIMELESS_SOUNDTRACK
+--INSERT INTO TIMELESS_SOUNDTRACK (codigoSoundTrack, idMusica, idPrograma)
+--VALUES
+--    (1, 1, 1),
+--    (2, 2, 2),
+--    (3, 3, 3),
+--    (4, 4, 4),
+--    (5, 5, 5),
+--    (6, 6, 6),
+--    (7, 7, 7),
+--    (8, 8, 8),
+--    (9, 9, 9),
+--    (10, 10, 10);
+
+--Inserir valores na tabela TIMELESS_MUSICA
 
 --INSERT INTO TIMELESS_MUSICA (idMusica, titulo, artista, compositor, gravadora)
 --VALUES
@@ -131,26 +148,27 @@
 --	(9, 'Billie Jean', 'Michael Jackson', 'Michael Jackson', 'Epic Records'),
 --	(10, 'My Generation', 'The Who', 'Pete Townshend', 'Brunswick Records');
 
-------Inserir valores na tabela TIMELESS_IDIOMAS
---INSERT INTO TIMELESS_IDIOMAS (ingles, portugues, espanhol, italiano, mandarim, frances, alemao, idprograma)
---VALUES
---('Sim', 'Nao', 'Sim', 'Nao', 'Sim', 'Nao', 'Nao', 1),
---('Sim', 'Sim', 'Nao', 'Nao', 'Sim', 'Nao', 'Sim', 2),
---('Nao', 'Sim', 'Sim', 'Sim', 'Nao', 'Sim', 'Nao', 3),
---('Sim', 'Nao', 'Nao', 'Sim', 'Nao', 'Sim', 'Sim', 4),
---('Nao', 'Sim', 'Nao', 'Nao', 'Sim', 'Sim', 'Nao', 5);
-
----- Inserir valores na tabela TIMELESS_EXIBIDOEM 
---INSERT INTO TIMELESS_EXIBIDOEM (ingles, idPrograma)
---VALUES ('Sim', 1),
---       ('Sim', 2),
---       ('Nao', 3);
 
 --- Inserir valores na tabela TIMELESS_ALLOWEDIN
 --INSERT INTO TIMELESS_ALLOWEDIN (codigoPaisID, idPrograma)
---VALUES (1, 101), (2, 101), (2, 102);
+--VALUES (1, 1), (2, 2), (2,3);
 
 
 ---- Inserir valores na tabela TIMELESS_SOUNDTRACKTEM
 --INSERT INTO TIMELESS_SOUNDTRACKTEM (idMusica, codigoSoundTrack)
---VALUES (1, 100), (2, 101), (3, 102);
+--VALUES (1,2), (2, 4), (3, 6);
+
+--SELECT * FROM TIMELESS_MUSICA;
+--SELECT * FROM TIMELESS_FUNCIONARIO;
+--SELECT * FROM TIMELESS_PARCERIA;
+--SELECT * FROM TIMELESS_PROGRAMA;
+--SELECT * FROM TIMELESS_EPISODIO;
+--SELECT * FROM TIMELESS_PAISES;
+--SELECT * FROM TIMELESS_SOUNDTRACK;
+--SELECT * FROM TIMELESS_CONTA;
+--SELECT * FROM TIMELESS_METODOPAGAMENTO;
+--SELECT * FROM TIMELESS_PAGAMENTO;
+--SELECT * FROM TIMELESS_SUBSCRICAO;
+--SELECT * FROM TIMELESS_AVALIACAO;
+--SELECT * FROM TIMELESS_ALLOWEDIN;
+--SELECT * FROM TIMELESS_SOUNDTRACKTEM;
