@@ -1,0 +1,13 @@
+Visualização dos programas mais populares ou melhor avaliados:
+
+Com base nas avaliações fornecidas pelos usuários, você pode criar uma classificação dos programas mais populares ou melhor avaliados, permitindo que os usuários descubram os programas mais apreciados pela comunidade.
+
+
+Visualização dos programas de um determinado país:
+
+Ao selecionar um país específico, você pode exibir todos os programas disponíveis nesse país, fornecendo uma visão geral dos programas que os usuários podem assistir.
+
+
+Visualização dos episódios de um programa:
+
+Ao selecionar um programa específico, você pode listar todos os episódios associados a ele, permitindo que os usuários acessem facilmente todos os episódios disponíveis.

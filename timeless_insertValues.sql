@@ -47,14 +47,20 @@
 ---- Inserir valores na tabela TIMELESS_EPISODIO
 --INSERT INTO TIMELESS_EPISODIO (sinopse, idprograma, titulo, numero, temporada, duracao, datadelancamento)
 --VALUES
---('A team of time travelers fight to save history from being altered', 1, 'The Beginning', 1, 1, 45, '2023-01-01'),
---('The Time Travelers Face a Powerful Enemy That Seeks to Destroy the Past', 1, 'The Unknown Enemy', 2, 1, 40, '2023-01-08'),
---('The team tries to correct a change in WWII that could change the course of history', 1, 'Operation Overlord', 3, 1, 50, '2023-01-15'),
---('Travelers Arrive in Ancient Rome and Become Embroiled in a Deadly Conspiracy', 1, 'Intrigues in Rome', 4, 1, 55, '2023-01-22'),
---('A leap into the future reveals a post-apocalyptic world and a battle for survival', 1, 'The Last Refuge', 5, 1, 60, '2023-01-29');
+--    ('Tom e Jerry se envolvem em uma nova e hilariante perseguição', 1, 'A Corrida', 1, 1, 10, '2023-01-15'),
+--    ('Jerry usa sua astúcia para escapar das garras de Tom mais uma vez', 1, 'O Esconderijo', 2, 1, 12, '2023-01-22'),
+--    ('Bugs Bunny trapaceia mais uma vez em uma nova aventura', 2, 'Aposta Maluca', 1, 1, 7, '2023-02-05'),
+--    ('Pernalonga e Patolino enfrentam um desafio inesperado', 2, 'A Grande Competição', 2, 1, 8, '2023-02-12'),
+--    ('Pedrita e Bambam vivem uma nova aventura na Idade da Pedra', 3, 'Uma Tarde no Parque', 1, 1, 25, '2023-03-10'),
+--    ('Fred Flintstone se mete em confusão novamente', 3, 'A Grande Encrenca', 2, 1, 28, '2023-03-17'),
+--    ('Scooby-Doo e sua turma desvendam mais um mistério', 4, 'O Fantasma do Farol', 1, 1, 22, '2023-04-05'),
+--    ('Uma mansão mal-assombrada testa a coragem de Scooby-Doo e seus amigos', 4, 'O Mistério da Mansão', 2, 1, 26, '2023-04-12'),
+--    ('George Jetson enfrenta uma nova invenção tecnológica', 5, 'O Robô de Limpeza', 1, 1, 18, '2023-05-03'),
+--    ('Jane Jetson se envolve em uma confusão intergaláctica', 5, 'O Dia do Caos', 2, 1, 20, '2023-05-10');
 
 
------- Inserir valores na tabela TIMELESS_EPISODIO
+
+------ Inserir valores na tabela TIMELESS_AVALIACAO
 --INSERT INTO TIMELESS_AVALIACAO (idavaliacao, userContaQueAvaliou, data, classificacao, idprograma)
 --VALUES
 --    (1, 'João', '2023-05-01', 5, 1),
@@ -62,6 +68,13 @@
 --    (3, 'Pedro', '2023-05-03', 3, 2),
 --    (4, 'Ana', '2023-05-04', 2, 2),
 --    (5, 'Carlos', '2023-05-05', 1,3);
+--INSERT INTO TIMELESS_AVALIACAO(idavaliacao,userContaQueAvaliou, data, classificacao, idprograma)
+--VALUES
+--	(6,'Mariana','2023-05-09',3,3),
+--	(7,'Rui','2023-05-10',4,4),
+--	(8,'Sara','2023-05-11',2,4),
+--	(9,'António','2023-05-12',3,5),
+--	(10,'Marta','2023-05-13',4,5);
 
 ---porque o idConta é IDENTITY(1,1)
 
@@ -90,6 +103,13 @@
 --    ('Premium', 20),
 --    ('Standard', 10),
 --    ('Premium', 20);
+--INSERT INTO TIMELESS_SUBSCRICAO(tiposubscricao,valorMensalidade)
+--VALUES
+--	('Standard',10),
+--	('Premium',20),
+--	('Standard',10),
+--	('Premium',20),
+--	('Standard',10);
 
 ----porque idConta é IDENTITY(1,1)
 
@@ -101,6 +121,13 @@
 --(2, 250, '2021-09-03',2),
 --(3, 1000, '2021-09-05',3),
 --(4, 750, '2021-09-07',4);
+--INSERT INTO TIMELESS_PAGAMENTO(idcliente,valorPago, dataPagamento, metodoId) VALUES 
+--(5,550,'2021-09-01',1),
+--(6,630,'2021-07-08',2),
+--(7,430,'2021-07-06',3),
+--(8,320,'2021-06-05',4),
+--(9,235,'2021-08-07',1),
+--(10,150,'2021-08-09',2);
 
 --Inserir valores na tabela TIMELESS_METODOPAGAMENTO
 --INSERT INTO TIMELESS_METODOPAGAMENTO(descricao) VALUES
@@ -117,6 +144,10 @@
 --(3, 'Mexico', 'Spanish', 'MXN'),
 --(4, 'United Kingdom', 'English', 'GBP'),
 --(5, 'Japan', 'Japanese', 'JPY');
+--INSERT INTO TIMELESS_PAISES(codigoPaisID,nome,lingua,moeda)
+--VALUES
+--	(6,'Portugal','Portuguese','Euro'),
+--	(7,'Spain','Spanish','Euro');
 
 
 --Inserir valores na tabela TIMELESS_SOUNDTRACK
@@ -152,11 +183,32 @@
 --- Inserir valores na tabela TIMELESS_ALLOWEDIN
 --INSERT INTO TIMELESS_ALLOWEDIN (codigoPaisID, idPrograma)
 --VALUES (1, 1), (2, 2), (2,3);
+--INSERT INTO TIMELESS_ALLOWEDIN(codigoPaisID,idPrograma)
+--VALUES
+--	(3,3),
+--	(4,5),
+--	(5,8),
+--	(6,9),
+--	(7,6),
+--	(3,4),
+--	(4,7),
+--	(5,9),
+--	(6,8),
+--	(7,3);
 
 
 ---- Inserir valores na tabela TIMELESS_SOUNDTRACKTEM
 --INSERT INTO TIMELESS_SOUNDTRACKTEM (idMusica, codigoSoundTrack)
 --VALUES (1,2), (2, 4), (3, 6);
+--INSERT INTO TIMELESS_SOUNDTRACKTEM(idMusica,codigoSoundTrack)
+--VALUES
+--	(4,1),
+--	(5,3),
+--	(6,5),
+--	(7,8),
+--	(8,7),
+--	(9,10),
+--	(10,9);
 
 --SELECT * FROM TIMELESS_MUSICA;
 --SELECT * FROM TIMELESS_FUNCIONARIO;
@@ -172,3 +224,5 @@
 --SELECT * FROM TIMELESS_AVALIACAO;
 --SELECT * FROM TIMELESS_ALLOWEDIN;
 --SELECT * FROM TIMELESS_SOUNDTRACKTEM;
+
+

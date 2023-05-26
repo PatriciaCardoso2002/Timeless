@@ -1,0 +1,8 @@
+- Elenco de um filme
+- Programa televisivo que tem duração superior a duas horas
+- Ver que contas é que tem a subscrição tipo Premium 
+- Ver que contas é que um determinado funcionário gere 
+- Quais são as parcerias da responsabilidade de um determinado funcionário
+- Avaliações realizadas por uma determinada conta
+- Episódios de um determinado programa 
+- Músicas pertencentes a um determinado SoundTrack 

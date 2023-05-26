@@ -1,0 +1,30 @@
+Obter todos os episódios de um programa:
+Essa função recebe como entrada o ID de um programa e retorna uma lista de todos os episódios associados a esse programa.
+
+
+Obter todos os países de exibição de um programa:
+Essa função recebe como entrada o ID de um programa e retorna uma lista de todos os países nos quais esse programa é exibido.
+
+
+Obter todos os programas visualizados por uma conta:
+Essa função recebe como entrada o ID de uma conta e retorna uma lista de todos os programas que essa conta visualizou.
+
+Obter todas as músicas de uma trilha sonora:
+Essa função recebe como entrada o ID de uma trilha sonora e retorna uma lista de todas as músicas associadas a essa trilha sonora.
+
+Obter todas as contas gerenciadas por um funcionário:
+Essa função recebe como entrada o ID de um funcionário e retorna uma lista de todas as contas que esse funcionário gerencia.
+
+
+Obter todas as parcerias negociadas por um funcionário:
+Essa função recebe como entrada o ID de um funcionário e retorna uma lista de todas as parcerias que esse funcionário negociou.
+
+
+Obter todas as contas que utilizam um determinado método de pagamento:
+Essa função recebe como entrada o ID de um método de pagamento e retorna uma lista de todas as contas que utilizam esse método.
+
+Obter a subscrição associada a uma conta:
+Essa função recebe como entrada o ID de uma conta e retorna o tipo de subscrição associada a essa conta.
+
+
+

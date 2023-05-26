@@ -1,0 +1,4 @@
+Consultas de seleção de programas vistos por uma conta específica: Se você precisa obter todos os programas assistidos por uma conta específica, criar um índice na coluna que relaciona as contas aos programas pode ajudar a acelerar a consulta, permitindo a recuperação rápida dos programas associados a essa conta.
+
+não faz sentido termos indices no nosso projeto porque o número de dados não é suficientemente
+grande, por isso temos só um caso a título de exempplo
