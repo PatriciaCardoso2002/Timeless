@@ -1,4 +1,4 @@
-Trigger para calcular a média de avaliações de um programa:
+ Trigger para calcular a média de avaliações de um programa:
 Ao receber uma nova avaliação para um programa, essa trigger pode ser acionada para calcular automaticamente a média das avaliações atribuídas ao programa, atualizando assim o valor da classificação média.
 
 Trigger para atualizar a quantidade de programas em um país:
