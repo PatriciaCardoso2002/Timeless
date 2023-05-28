@@ -11,3 +11,185 @@ Ao selecionar um país específico, você pode exibir todos os programas dispon�
 Visualização dos episódios de um programa:
 
 Ao selecionar um programa específico, você pode listar todos os episódios associados a ele, permitindo que os usuários acessem facilmente todos os episódios disponíveis.
+
+
+
+------------------------------------------------------------\\------------------------------------------------------------------
+
+
+como sei se devo criar os índices e as views criadas anteriormente?
+
+Views:
+
+Simplificação das consultas: Se você tiver consultas complexas que envolvem várias tabelas, joins e filtros, criar views pode simplificar essas consultas, encapsulando a lógica em uma visualização predefinida. Isso pode tornar as consultas mais fáceis de escrever, ler e manter.
+
+Segurança dos dados: As views podem ser usadas para controlar o acesso aos dados, permitindo que você defina permissões de acesso diferentes para diferentes usuários ou grupos de usuários. Isso ajuda a proteger a confidencialidade dos dados, permitindo que os usuários vejam apenas as informações relevantes para eles.
+
+Abstração de dados: As views podem fornecer uma camada de abstração sobre a estrutura subjacente das tabelas, o que pode ser útil se você deseja ocultar a complexidade da estrutura de dados subjacente ou fornecer uma representação simplificada dos dados para os usuários.
+
+Reutilização de consultas: Se você tiver consultas que são usadas repetidamente em diferentes partes do seu sistema, criar views pode facilitar a reutilização dessas consultas, evitando a necessidade de escrever a mesma lógica de consulta várias vezes.
+
+Antes de criar índices e views, avalie cuidadosamente a estrutura e as necessidades do seu banco de dados, bem como as consultas e operações que são executadas com frequência. Considere o desempenho, a simplicidade das consultas, a segurança dos dados e a reutilização de consultas ao decidir se criar índices e views é apropriado para o seu caso. É recomendável fazer testes e análises de desempenho para verificar o impacto dessas criações no sistema.
+
+
+
+
+Para que servem estes índices e views criadas anteriormente?
+
+Views:
+
+ProgramasPopulares:
+Essa view permite que os usuários vejam os programas mais populares ou melhor avaliados com base nas classificações fornecidas pelos usuários. A média das classificações é calculada e os programas são classificados por essa média. Essa view simplifica a análise dos programas mais apreciados pela comunidade, permitindo que os usuários descubram rapidamente os programas com melhores avaliações.
+
+ProgramasPorPais:
+Essa view permite que os usuários vejam os programas disponíveis em um país específico. Através dessa view, os usuários podem selecionar um país e obter uma visão geral dos programas que estão disponíveis nesse país. Isso facilita a descoberta de conteúdo específico para cada região geográfica.
+
+EpisodiosDoPrograma:
+Essa view lista todos os episódios associados a um programa específico ou a todos os programas, dependendo de como a consulta é ajustada. Essa view simplifica a visualização e o acesso aos episódios de um programa, permitindo que os usuários acessem facilmente todas as informações relevantes sobre cada episódio.
+
+Esses índices e views contribuem para melhorar a eficiência e a usabilidade do sistema, fornecendo acesso rápido a informações relevantes e facilitando a análise e visualização dos dados relacionados aos programas, contas de usuário e avaliações.
+
+
+
+Baseando nesta base de dados criada, que views são apropriadas criar?
+
+Com base na base de dados fornecida, você pode considerar a criação das seguintes views para facilitar consultas e análises:
+
+View de Informações do Programa:
+sql
+Copy code
+CREATE VIEW InformacoesPrograma AS
+SELECT
+    p.idprograma,
+    p.titulo,
+    p.anolancamento,
+    p.diretor,
+    p.elenco,
+    p.sinopse,
+    p.duracao,
+    par.nome AS nome_empresa
+FROM
+    TIMELESS_PROGRAMA p
+    INNER JOIN TIMELESS_PARCERIA par ON p.idempresa = par.idEmpresa;
+Essa view retorna informações detalhadas sobre cada programa, incluindo o nome da empresa parceira.
+
+View de Avaliações de um Programa:
+sql
+Copy code
+CREATE VIEW AvaliacoesPrograma AS
+SELECT
+    a.idavaliacao,
+    a.userContaQueAvaliou,
+    a.data,
+    a.classificacao,
+    p.titulo AS nome_programa
+FROM
+    TIMELESS_AVALIACAO a
+    INNER JOIN TIMELESS_PROGRAMA p ON a.idprograma = p.idprograma;
+Essa view retorna as avaliações de cada programa, incluindo o nome do programa avaliado.
+
+View de Contas com Avaliações:
+sql
+Copy code
+CREATE VIEW ContasComAvaliacoes AS
+SELECT
+    c.idConta,
+    c.nome,
+    c.apelido,
+    c.datadeNascimento,
+    c.email,
+    a.classificacao
+FROM
+    TIMELESS_CONTA c
+    INNER JOIN TIMELESS_CONTA_AVALIACAO ca ON c.idConta = ca.idConta
+    INNER JOIN TIMELESS_AVALIACAO a ON ca.idAvaliacao = a.idavaliacao;
+Essa view retorna informações sobre as contas que fizeram avaliações, incluindo a classificação dada em cada avaliação.
+
+Essas são apenas algumas sugestões de views com base nos dados disponíveis. Lembre-se de ajustar as views de acordo com as necessidades específicas do seu sistema e das consultas que você precisa executar.
+
+
+
+
+será apropriado criar as seguintes views: Visualização dos programas mais populares ou melhor avaliados:
+
+Com base nas avaliações fornecidas pelos usuários, você pode criar uma classificação dos programas mais populares ou melhor avaliados, permitindo que os usuários descubram os programas mais apreciados pela comunidade.
+
+
+Visualização dos programas de um determinado país:
+
+Ao selecionar um país específico, você pode exibir todos os programas disponíveis nesse país, fornecendo uma visão geral dos programas que os usuários podem assistir.
+
+
+Visualização dos episódios de um programa:
+
+Ao selecionar um programa específico, você pode listar todos os episódios associados a ele, permitindo que os usuários acessem facilmente todos os episódios disponíveis.
+
+
+Sim, criar as seguintes views seria apropriado para fornecer informações úteis aos usuários:
+
+Visualização dos programas mais populares ou melhor avaliados:
+Essa view pode ser criada com base nas avaliações dos usuários. Você pode calcular a média das classificações para cada programa e classificar os programas com base nessa média. Aqui está um exemplo de como criar essa view:
+sql
+Copy code
+CREATE VIEW ProgramasPopulares AS
+SELECT
+    p.idprograma,
+    p.titulo,
+    p.anolancamento,
+    p.diretor,
+    p.elenco,
+    p.sinopse,
+    p.duracao,
+    AVG(a.classificacao) AS media_avaliacao
+FROM
+    TIMELESS_PROGRAMA p
+    LEFT JOIN TIMELESS_AVALIACAO a ON p.idprograma = a.idprograma
+GROUP BY
+    p.idprograma,
+    p.titulo,
+    p.anolancamento,
+    p.diretor,
+    p.elenco,
+    p.sinopse,
+    p.duracao
+ORDER BY
+    media_avaliacao DESC;
+Essa view retorna os programas ordenados pela média de classificação em ordem decrescente, mostrando os programas mais populares ou melhor avaliados.
+
+Visualização dos programas de um determinado país:
+Essa view pode ser criada com base na tabela TIMELESS_ALLOWEDIN, que relaciona os programas permitidos em cada país. Aqui está um exemplo de como criar essa view:
+sql
+Copy code
+CREATE VIEW ProgramasPorPais AS
+SELECT
+    p.idprograma,
+    p.titulo,
+    p.anolancamento,
+    p.diretor,
+    p.elenco,
+    p.sinopse,
+    p.duracao,
+    ai.codigoPaisID
+FROM
+    TIMELESS_PROGRAMA p
+    INNER JOIN TIMELESS_ALLOWEDIN ai ON p.idprograma = ai.idprograma;
+Essa view retorna os programas juntamente com o código do país em que são permitidos. Os usuários podem selecionar um país específico para ver os programas disponíveis nele.
+
+Visualização dos episódios de um programa:
+Essa view pode ser criada para listar todos os episódios associados a um programa específico. Aqui está um exemplo de como criar essa view:
+sql
+Copy code
+CREATE VIEW EpisodiosDoPrograma AS
+SELECT
+    e.sinopse,
+    e.idprograma,
+    e.titulo,
+    e.numero,
+    e.temporada,
+    e.duracao,
+    e.datadelancamento
+FROM
+    TIMELESS_EPISODIO e;
+Essa view retorna os episódios de todos os programas. Você pode ajustar a consulta para filtrar por um programa específico, se desejar.
+
+Lembre-se de ajustar as views de acordo com a estrutura da sua base de dados e as necessidades específicas do seu sistema.
