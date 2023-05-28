@@ -112,7 +112,7 @@ Certamente! Aqui estão as definições das UDFs que mencionei anteriormente:
 
 UDF: ObterIdade
 sql
-Copy code
+Copy code 
 CREATE FUNCTION ObterIdade (@dataNascimento DATE)
 RETURNS INT
 AS
