@@ -55,7 +55,7 @@
 --Preciso de uma nova coluna na tabela TIMELESS_ALLOWEDIN chamada quantidadeProgramas para armazenar a quantidade de programas exibida em um determinado país
 --ALTER TABLE TIMELESS_ALLOWEDIN ADD quantidadeProgramas INT;
 
-----Criação do Trigger
+------Criação do Trigger
 --CREATE TRIGGER atualizarQuantidadeProgramas
 --ON TIMELESS_ALLOWEDIN
 ----posso colocar também depois de fazer o update ou depois de fazer o delete 
