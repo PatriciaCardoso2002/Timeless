@@ -193,3 +193,88 @@ FROM
 Essa view retorna os episódios de todos os programas. Você pode ajustar a consulta para filtrar por um programa específico, se desejar.
 
 Lembre-se de ajustar as views de acordo com a estrutura da sua base de dados e as necessidades específicas do seu sistema.
+
+
+
+-----------------------------------------------------\\------------------------------------------------------------------------
+
+-- Visualização dos programas mais populares ou melhor avaliados:
+-- Esta view pode ser criada com base nas avaliações dos utilizadores. 
+-- Pode-se calcular a média das classificações para cada programa e classificar os programas com base nessa média.
+
+--CREATE VIEW ProgramasPopulares AS
+--SELECT
+--    p.idprograma,
+--    p.titulo,
+--    p.anolancamento,
+--    p.diretor,
+--    p.elenco,
+--    p.sinopse,
+--    p.duracao,
+--    AVG(a.classificacao) AS media_avaliacao
+--FROM
+--    TIMELESS_PROGRAMA p
+--    LEFT JOIN TIMELESS_AVALIACAO a ON p.idprograma = a.idprograma
+--GROUP BY
+--    p.idprograma,
+--    p.titulo,
+--    p.anolancamento,
+--    p.diretor,
+--    p.elenco,
+--    p.sinopse,
+--    p.duracao;
+-- Esta view retorna os programas ordenados pela média de classificação em ordem decrescente, mostrando os programas mais populares ou melhor avaliados.
+
+
+-- Depois de criar a view, você pode consultar a view e aplicar a cláusula ORDER BY na consulta:
+
+-- SELECT *
+-- FROM ProgramasPopulares
+-- ORDER BY media_avaliacao DESC;
+-- Dessa forma, você poderá obter os programas ordenados pela média de classificação em ordem decrescente ao consultar a view ProgramasPopulares.
+
+
+
+
+
+-- Visualização dos episódios de um programa:
+-- Esta view pode ser criada para listar todos os episódios associados a um programa específico. Aqui está um exemplo de como criar essa view:
+
+ -- Esta view retorna os episódios de todos os programas. Você pode ajustar a consulta para filtrar por um programa específico, se desejar.
+
+--Para ajustar a consulta da view "EpisodiosDoPrograma" para filtrar por um programa específico, você precisa adicionar uma cláusula WHERE na consulta, especificando o programa desejado. Aqui está um exemplo de como fazer isso:
+--ALTER TABLE TIMELESS_CONTA_PROGRAMA ADD FOREIGN KEY ([idPrograma]) REFERENCES TIMELESS_PROGRAMA([idPrograma])
+
+CREATE VIEW EpisodiosDoPrograma AS
+SELECT
+    e.sinopse,
+    e.idprograma,
+    e.titulo,
+    e.numero,
+    e.temporada,
+    e.duracao,
+    e.datadelancamento
+FROM
+    TIMELESS_EPISODIO e
+
+
+--Substitua <id_do_programa> pelo ID do programa específico que você deseja filtrar. 
+--Dessa forma, a view retornará apenas os episódios associados a esse programa. 
+--Certifique-se de substituir corretamente o valor do <id_do_programa> na consulta.
+
+
+--Depois de criar a view "EpisodiosDoPrograma", você pode consultá-la da mesma maneira que faria com uma tabela normal. 
+-- Aqui está um exemplo de como consultar essa view:
+
+--SELECT *
+--FROM EpisodiosDoPrograma;
+
+--Essa consulta retornará todos os episódios de todos os programas. Se você deseja filtrar por um programa específico, você pode adicionar uma cláusula WHERE na consulta, informando o critério de filtro desejado. Por exemplo:
+
+--SELECT *
+--FROM EpisodiosDoPrograma
+--WHERE idprograma = <id_do_programa>;
+
+--Substitua <id_do_programa> pelo ID do programa específico que você deseja filtrar. 
+--Dessa forma, a consulta retornará apenas os episódios associados a esse programa. 
+--Certifique-se de substituir corretamente o valor do <id_do_programa> na consulta.
