@@ -156,6 +156,8 @@
 
 --Testar o trigger
 --SELECT * FROM TIMELESS_PAGAMENTO;
+--SELECT * FROM TIMELESS_CONTA;
 --INSERT INTO TIMELESS_PAGAMENTO (idCliente, valorPago, dataPagamento, metodoId)
---VALUES (4, 100, '2023-05-31', 1);
+--VALUES (5, 100, '2023-05-31', 1);
 
+--SELECT * FROM TIMELESS_CONTA_PROGRAMA;    ---teste dos inserts através do windowsForms
