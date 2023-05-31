@@ -160,4 +160,4 @@
 --INSERT INTO TIMELESS_PAGAMENTO (idCliente, valorPago, dataPagamento, metodoId)
 --VALUES (5, 100, '2023-05-31', 1);
 
---SELECT * FROM TIMELESS_CONTA_PROGRAMA;    ---teste dos inserts através do windowsForms
+SELECT * FROM TIMELESS_CONTA_PROGRAMA;    ---teste dos inserts através do windowsForms

@@ -16,7 +16,7 @@ namespace Time
         {
             TestDBConnection(textBox1.Text, textBox3.Text, textBox3.Text, textBox2.Text);
 
-            Form2 frm = new Form2(CN);
+            Menu frm = new Menu(CN);
             //1 modeless dialog, Show()
             frm.Show();
 
@@ -55,6 +55,11 @@ namespace Time
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

@@ -23,13 +23,12 @@ namespace Time
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            SqlCommand cmd = new SqlCommand("insert into TIMELESS_CONTA_PROGRAMA values (@idConta,@idPrograma)", CN);
+
             CN.Open();
+            SqlCommand cmd = new SqlCommand("insert into TIMELESS_CONTA_PROGRAMA values (@idConta,@idPrograma)", CN);
             cmd.Parameters.AddWithValue("@idConta", int.Parse(textBox1.Text));
             cmd.Parameters.AddWithValue("@idPrograma", int.Parse(textBox3.Text));
             cmd.ExecuteNonQuery();
-            CN.Close();
             MessageBox.Show("Successfully Saved");
         
 
@@ -44,5 +43,43 @@ namespace Time
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CN.Open();
+            SqlCommand cmd = new SqlCommand("Delete TIMELESS_CONTA_PROGRAMA where idConta = @idConta", CN);
+            cmd.Parameters.AddWithValue("@idConta", int.Parse(textBox1.Text));
+            cmd.ExecuteNonQuery();
+            CN.Close();
+            MessageBox.Show("Successfully Deleted");
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("Select * from TIMELESS_CONTA_PROGRAMA", CN);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE TIMELESS_CONTA_PROGRAMA SET idPrograma = 3 WHERE idConta = @idConta", CN);
+            cmd.Parameters.AddWithValue("@idConta", int.Parse(textBox1.Text));
+
+            CN.Open();
+            cmd.ExecuteNonQuery();
+            CN.Close();
+
+            MessageBox.Show("Successfully Updated");
+        }
+
     }
 }
