@@ -4,11 +4,11 @@
 
 --Precisamos de criar uma coluna ClassificacaoMedia na tabela TIMELESS_PROGRAMA
 
--- Adicionar a coluna classificacaoMedia à tabela TIMELESS_PROGRAMA
+---- Adicionar a coluna classificacaoMedia à tabela TIMELESS_PROGRAMA
 --ALTER TABLE TIMELESS_PROGRAMA
 --ADD classificacaoMedia FLOAT;
 
--- Trigger para calcular a média das avaliações de um programa
+-- --Trigger para calcular a média das avaliações de um programa
 --CREATE TRIGGER calcularMediaAvaliacoes
 --ON TIMELESS_CONTA_AVALIACAO
 --AFTER INSERT, UPDATE, DELETE
@@ -32,13 +32,12 @@
 --END;
 
 
---Verificacao do funcionamento do trigger
+----Verificacao do funcionamento do trigger
 --INSERT INTO TIMELESS_CONTA_AVALIACAO ([idConta], [idAvaliacao])
---VALUES (2,6);
+--VALUES (4,8);
 
 --SELECT * FROM TIMELESS_PROGRAMA;
---SELECT * FROM TIMELESS_AVALIACAO;
---SELECT * FROM TIMELESS_CONTA_AVALIACAO;
+
 
 
 
@@ -86,8 +85,11 @@
 --VALUES(2,4);
 
 
+--INSERT INTO TIMELESS_ALLOWEDIN(codigoPaisID,idPrograma)
+--VALUES(6,4);
+
 --SELECT * FROM TIMELESS_ALLOWEDIN;
---SELECT * FROM TIMELESS_PROGRAMA;
+---SELECT * FROM TIMELESS_PROGRAMA;
 
 --Ou seja
 --Quando há uma nova inserção na tabela TIMELESS_ALLOWEDIN, o trigger é acionado e obtém o código do país e o id do programa inserido e 
@@ -160,4 +162,5 @@
 --INSERT INTO TIMELESS_PAGAMENTO (idCliente, valorPago, dataPagamento, metodoId)
 --VALUES (5, 100, '2023-05-31', 1);
 
-SELECT * FROM TIMELESS_CONTA_PROGRAMA;    ---teste dos inserts através do windowsForms
+SELECT * FROM TIMELESS_FUNCIONARIO;
+SELECT * FROM TIMELESS_CONTA;

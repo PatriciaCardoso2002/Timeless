@@ -25,3 +25,13 @@ C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\runtimes\win\lib\
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.csproj.CopyComplete
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.Form3.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.Menu.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.AssistirEpisódio.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.ComConta.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.Pagamento.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.Subscricao.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.VerificarExistenciaConta.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.SemConta.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.EscolherSubscricao.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.MenuDepoisCriarConta.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.ProgramasPorPais.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.GestaoContas.resources

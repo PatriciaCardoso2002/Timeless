@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="AssistirEpisódio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ComConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EscolherSubscricao.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -10,7 +19,28 @@
     <Compile Update="Form3.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GestaoContas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MenuDepoisCriarConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProgramasPorPais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SemConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subscricao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VerificarExistenciaConta.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

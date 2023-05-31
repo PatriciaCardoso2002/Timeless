@@ -11,10 +11,11 @@ using System.Windows.Forms;
 
 namespace Time
 {
-    public partial class Menu : Form
+
+    public partial class MenuDepoisCriarConta : Form
     {
         private SqlConnection CN;
-        public Menu(SqlConnection connection)
+        public MenuDepoisCriarConta(SqlConnection connection)
         {
             CN = connection;
             InitializeComponent();
@@ -22,21 +23,21 @@ namespace Time
 
         private void button1_Click(object sender, EventArgs e)
         {
-            VerificarExistenciaConta frm = new VerificarExistenciaConta(CN);
+            EscolherSubscricao frm = new EscolherSubscricao(CN);
             //1 modeless dialog, Show()
             frm.Show();
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GestaoContas frm = new GestaoContas(CN);
+            ProgramasPorPais frm = new ProgramasPorPais(CN);
             //1 modeless dialog, Show()
             frm.Show();
+        }
+
+        private void MenuDepoisCriarConta_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,30 +11,37 @@ using System.Windows.Forms;
 
 namespace Time
 {
-    public partial class Menu : Form
+    public partial class ComConta : Form
     {
         private SqlConnection CN;
-        public Menu(SqlConnection connection)
+        public ComConta(SqlConnection connection)
         {
             CN = connection;
             InitializeComponent();
         }
 
+        private void ComConta_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            VerificarExistenciaConta frm = new VerificarExistenciaConta(CN);
+            Subscricao frm = new Subscricao(CN);
             //1 modeless dialog, Show()
             frm.Show();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            GestaoContas frm = new GestaoContas(CN);
+            AssistirEpisódio frm = new AssistirEpisódio(CN);
+            //1 modeless dialog, Show()
+            frm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Pagamento frm = new Pagamento(CN);
             //1 modeless dialog, Show()
             frm.Show();
         }
