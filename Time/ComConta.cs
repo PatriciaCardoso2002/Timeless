@@ -51,5 +51,11 @@ namespace Time
             ProgramasPopulares frm = new ProgramasPopulares(CN);
             frm.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            InserirPrograma frm = new InserirPrograma(CN);
+            frm.Show();
+        }
     }
 }

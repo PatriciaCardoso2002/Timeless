@@ -25,6 +25,9 @@
     <Compile Update="GestaoParcerias.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="InserirPrograma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
