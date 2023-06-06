@@ -22,3 +22,6 @@ Adicionámos uma funcionalidade "Programas Populares" disponível para os utiliz
 Adicionámos uma stored procedure "GetProgramSoundtracks" e implementámos essa funcionalidade na tela do utilizador que já tem conta na Timeless. Depois de introduzir o nome do programa é mostrada a soundtrack. Apesar de ser introduzido o nome, a lógica da interação da base de dados com o Forms é através do id do Programa.
 
 A password ao criar a conta no cliente já não fica visível.
+
+## Tópicos não implementados
+Tínhamos intenções de implementar Transactions e Cursores.

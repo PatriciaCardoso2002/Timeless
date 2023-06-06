@@ -19,11 +19,13 @@ Algumas das funcionalidades proporcionadas aos seus clientes por esta base de da
 
 - Consultar episódios disponíveis, relativos a um programa 
 
-- Fazer avaliações (pessoais) a programas 
-
 - Gerir a conta e o plano de subscrição 
 
 - Efetuar o pagamento da sua subscrição
+
+Algumas das funcionalidades dos funcionários da empresa são:
+- Gerir contas dos clientes
+- Gerir Parcerias
  
 
 <div style="page-break-after: always;"></div>
@@ -69,7 +71,7 @@ O ficheiro *timeless_insertValues.sql* contém o código SQL que permite a inser
 
 O ficheiro *views.sql* contém o código SQL de algumas *views* criadas sobre a base de dados:
 
- - *ProgramasPopulares*, que permite visualizar os programas melhor avaliados, ou com melhores classificações. É possível calcular a média dessas clasificações (com base nas avaliações dadas pelos utilizadores) para cada programa e classificar os programas com base nessa média.
+ - *ProgramasPopulares*, que permite visualizar os programas melhor avaliados, ou com melhores classificações. É possível calcular a média dessas classificações (com base nas avaliações dadas pelos utilizadores) para cada programa e classificar os programas com base nessa média.
  - *EpisodiosDoPrograma*, que permite visualizar os episódios de um programa, de determinada temporada.
 
 ### Queries
@@ -80,6 +82,8 @@ O ficheiro *queries.sql* contém o código SQL de algumas *queries* efetuadas so
  - Para consultar a segunda view que foi criada («EpisodiosDoPrograma»), usa-se a segunda e a terceira queries criadas para pesquisar mais rapidamente pelos episódios de um programa. E para especificar/filtrar por determinado programa, ajusta-se a consulta, ao acrescentar na cláusula WHERE o id do programa que pretendemos pesquisar.
 - Usar a UDF "ObterTodasParceriasNegociadasFuncionario" numa consulta
 - Usar a UDF "ObterSubscricaoAssociadaConta" numa consulta.
+
+Para além disto, contém as queries usadas no forms para a interação com a base de dados.
 
 ### Indexes/Índices
 
@@ -97,8 +101,8 @@ Estes índices foram criados, no entanto, não compensa usá-los de facto, visto
 O ficheiro *triggers.sql* contém o código SQL dos *triggers* criados sobre a base de dados:
 
  - Trigger para calcular a média de avaliações de um programa:
- ao receber uma nova avaliação para um programa, esse trigger pode ser acionado para calcular automaticamente a média das avaliações atribuídas ao programa, atualizando assim o valor da classificação média. Precisamos de criar uma coluna ClassificacaoMedia na tabela TIMELESS_PROGRAMA. Adicionar a coluna classificacaoMedia à tabela TIMELESS_PROGRAMA. Após a criado do trigger, sempre que uma nova avaliação for inserida na tabela TIMELESS_AVALIACAO, o trigger calculará a média das classificações para o programa correspondente e atualizará a coluna classificacaoMedia na tabela TIMELESS_PROGRAMA com o valor calculado.
- - Trigger para atualizar a quantidade de programas num país: Quando um programa é associado a um novo país de exibição, esse trigger pode ser acionado para atualizar automaticamente a contagem de programas disponíveis nesse país (ALTER TABLE TIMELESS_ALLOWEDIN ADD quantidadeProgramas INT;). Quando há uma nova inserção na tabela TIMELESS_ALLOWEDIN, o trigger é acionado e obtém o código do país e o id do programa inserido e atualiza a coluna quantidadeProgramas na tabela TIMELESS_ALLOWEDIN com o número de programas disponíveis nesse país. Preciso de uma nova coluna na tabela TIMELESS_ALLOWEDIN chamada quantidadeProgramas para armazenar a quantidade de programas exibida em um determinado país.
+ ao receber uma nova avaliação para um programa, esse trigger pode ser acionado para calcular automaticamente a média das avaliações atribuídas ao programa, atualizando assim o valor da classificação média. Precisamos de criar uma coluna ClassificacaoMedia na tabela TIMELESS_PROGRAMA. Adicionar a coluna classificacaoMedia à tabela TIMELESS_PROGRAMA. Após a criação do trigger, sempre que uma nova avaliação for inserida na tabela TIMELESS_AVALIACAO, o trigger calculará a média das classificações para o programa correspondente e atualizará a coluna classificacaoMedia na tabela TIMELESS_PROGRAMA com o valor calculado.
+ - Trigger para atualizar a quantidade de programas num país: Quando um programa é associado a um novo país de exibição, esse trigger pode ser acionado para atualizar automaticamente a contagem de programas disponíveis nesse país (ALTER TABLE TIMELESS_ALLOWEDIN ADD quantidadeProgramas INT;). Quando há uma nova inserção na tabela TIMELESS_ALLOWEDIN, o trigger é acionado e obtém o código do país e o id do programa inserido e atualiza a coluna quantidadeProgramas na tabela TIMELESS_ALLOWEDIN com o número de programas disponíveis nesse país. Foi adicionada uma nova coluna na tabela TIMELESS_ALLOWEDIN chamada quantidadeProgramas para armazenar a quantidade de programas exibida em um determinado país.
  - Trigger para enviar lembretes de pagamento: Fazer uma simulação do envio de um email para o campo [email] na entidade TIMELESS_CONTA quando o campo [dataPagamento] na entidade TIMELESS_PAGAMENTO estiver a 7 dias ou menos de distância da data atual.
  Duas formas de implementar isto seria enviar um email à pessoa, lembrando-a da data de pagamento, no entanto, os emails que temos na base de dados não são reais. Então, a alternativa que nos pareceu mais correta foi criar uma tabela chamada TIMELESS_LEMBRETES. Afinal de contas, não foi possível criar a entidade TIMELESS_LEMBRETES, porque ela ia estar relacionada com a entidade TIMELESS_PAGAMENTO que é uma entidade fraca. Então, optámos por fazer uma simulação de envio de um email.
 
@@ -117,9 +121,9 @@ O ficheiro *sps.sql* contém o código SQL da *Stored Procedure* criada sobre a 
 
 Na interface de interação com a base de dados, tanto para as UDFs usadas, como para a SP, houve a criação de uma camada de abstração entre a base de dados e as operações que podem pôr em risco a integridade da mesma (operações que interagem diretamente com o conteúdo da base de dados).
 
-### Interface
+## Interface
 
-Interface e formulários de interação construidos em Windows Forms Application, em C#.
+Interface e formulários de interação construídos em Windows Forms Application, em C#.
 
 Sendo o trabalho a gestão de uma base de dados de uma plataforma que disponibiliza um serviço de streaming, o nosso foco no desenvolvimento no Windows Form foi permitir a interação com a base de dados por parte dos clientes e por parte dos funcionários.
 
@@ -177,3 +181,7 @@ No caso do cliente não ter conta é encaminhado para a tela de criar conta e de
 
     - Consultar os programas populares 
     Implementado com uma view 
+
+
+## Tópicos não implementados
+Tínhamos intenções de implementar Transactions e Cursores.
