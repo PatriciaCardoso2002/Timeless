@@ -144,6 +144,7 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(382, 297);
             this.textBox6.Name = "textBox6";
+            this.textBox6.PasswordChar = '*';
             this.textBox6.Size = new System.Drawing.Size(125, 27);
             this.textBox6.TabIndex = 14;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);

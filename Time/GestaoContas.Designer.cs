@@ -95,6 +95,7 @@
             this.Controls.Add(this.label1);
             this.Name = "GestaoContas";
             this.Text = "GestaoContas";
+            this.Load += new System.EventHandler(this.GestaoContas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

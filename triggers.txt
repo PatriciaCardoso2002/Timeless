@@ -1,8 +1,0 @@
- Trigger para calcular a média de avaliações de um programa:
-Ao receber uma nova avaliação para um programa, essa trigger pode ser acionada para calcular automaticamente a média das avaliações atribuídas ao programa, atualizando assim o valor da classificação média.
-
-Trigger para atualizar a quantidade de programas em um país:
-Quando um programa é associado a um novo país de exibição, essa trigger pode ser acionada para atualizar automaticamente a contagem de programas disponíveis nesse país.
-
-Trigger para enviar lembretes de pagamento:
-Com base nas datas de pagamento registradas nas contas, essa trigger pode ser acionada para enviar automaticamente lembretes de pagamento para os usuários antes do vencimento, garantindo que as assinaturas sejam renovadas a tempo.

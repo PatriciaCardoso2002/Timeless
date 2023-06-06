@@ -5,7 +5,6 @@ C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\Time.dll
 C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\Time.pdb
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.csproj.AssemblyReference.cache
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.Form1.resources
-C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.Form2.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.csproj.GenerateResource.cache
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.AssemblyInfoInputs.cache
@@ -23,7 +22,6 @@ C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\runtimes\win-x86\
 C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.csproj.CopyComplete
-C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.Form3.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.Menu.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.AssistirEpisódio.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.ComConta.resources

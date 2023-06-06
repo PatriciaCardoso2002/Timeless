@@ -85,5 +85,10 @@ namespace Time
                 MessageBox.Show("Insira um ID de funcionário válido.");
             }
         }
+
+        private void GestaoContas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -117,43 +117,63 @@ O ficheiro *sps.sql* contém o código SQL da *Stored Procedure* criada sobre a 
 
 Na interface de interação com a base de dados, tanto para as UDFs usadas, como para a SP, houve a criação de uma camada de abstração entre a base de dados e as operações que podem pôr em risco a integridade da mesma (operações que interagem diretamente com o conteúdo da base de dados).
 
-Também foi
 ### Interface
 
 Interface e formulários de interação construidos em Windows Forms Application, em C#.
 
-Foi dado maior foco à implementação das principais tarefas como gestão dos dados de um Evento e dos dados de um Concerto por serem as tabelas mais complexas em termos de dependências e para as quais também fora dado maior destaque na criação de views, triggers, used defined functions e stored procedures; de forma a assim maximizarmos a utilização deste trabalho em SQL.
+Sendo o trabalho a gestão de uma base de dados de uma plataforma que disponibiliza um serviço de streaming, o nosso foco no desenvolvimento no Windows Form foi permitir a interação com a base de dados por parte dos clientes e por parte dos funcionários.
 
-A ser implementado no GUI ficam interações semelhantes às já implementadas mas paras as restantes, e que não apresentam grande variadade de interação comparativamente as anteriores descritas.
+Inicialmente é preciso fazer o login na base de dados através das credenciais do utilizador.
 
-Com base nos scripts SQL de criação de *queries*, é possível simular alguns dos cenários de interação com a base de dados, por exemplo:
-  
- - Obter eventos cujo número de bilhetes seja maior que a média de todos os bilhetes vendidos;
- - Obter o número de Musicos de cada comitiva e ordenar pelo número de músicos;
- - Obter todas as empresas de catering e o número de eventos aos quais estas fornecem serviços;
- - etc.
+![login](login.png)
 
-Com base nos scripts SQL de criação de *triggers*, é possível simular cenários de interação com a base de dados, por exemplo:
+Na próxima tela, deve clicar ou no botão do cliente ou no botão do funcionário. 
 
- - garantir que não podem existir dois soundchecks ao mesmo tempo;
- - Soundcheck não pode durar mais de 1 hora (se durar a sua duração é ajustada para 1 hora);
- - etc.
-  
+Se clicar no funcionário, pode fazer as seguintes ações:
+- gerir contas
+- gerir parcerias
 
-Com base nos scripts SQL de criação de *UDFs*, é possível simular cenários de interação com a base de dados, por exemplo:
+    - A gestão das contas é feita com uma query à base de dados: 
 
- - Editar dados de um evento;
- - Apagar eventos;
- - Pesquisar músico por Nome Artístico;
- - Dada uma data de inicio e de fim dar os eventos aí dentro;
- - Dado um nome da banda, devolver informação sobre o evento em que a banda participa;
- - Dado o id de um Evento devolver os seus concertos e respectivos soundchecks
- - Dado um género devolver bandas;
- - etc.
+    string query = "SELECT c.nome FROM TIMELESS_CONTA c " +
+                                "INNER JOIN TIMELESS_FUNCIONARIO f ON c.idFuncionario = f.idFuncionario " +
+                                "WHERE f.idFuncionario = @idFuncionario";
 
-Com base nos scripts SQL de criação de *Stored Procedures*, é possível simular cenários de interação com a base de dados, por exemplo:
+    - A gestão de parcerias é feita através de uma udf
 
- - Apagar um concerto dado o id do mesmo;
- - Criar um concerto e um soundcheck para uma determinada banda;
- - Editar um evento;
- - etc.
+No caso do cliente é verificado se tem conta na plataforma.
+Se tiver conta, pode fazer as seguintes ações: 
+
+    - Consultar o tipo de subscrição
+    Implementado com uma udf.
+
+    - Escolher um episódio para assistir
+    Implementado com uma query: 
+    string query = "SELECT titulo FROM TIMELESS_EPISODIO";
+
+    - Efetuar um pagamento 
+    Implementado com um query:
+    string insertQuery = "INSERT INTO TIMELESS_PAGAMENTO (idCliente, valorPago, dataPagamento, metodoId) " + "VALUES (@idCliente, @valorPago, @dataPagamento, @metodoId)";
+
+    - Consultar os Programas Populares 
+    Implementado com uma view 
+
+    - Ver soundtrack
+    Implementado com uma stored procedure
+
+No caso do cliente não ter conta é encaminhado para a tela de criar conta e depois pode fazer as seguintes ações:
+    
+    - Escolher o tipo de subscrição
+    Implementado com uma query:
+
+    string query = "SELECT tiposubscricao FROM TIMELESS_SUBSCRICAO";
+
+    - Consultar os programas disponíveis por país
+    Implementado com queries: 
+
+    string query = "SELECT codigoPaisID, nome FROM TIMELESS_PAISES";
+
+    string query = "SELECT p.titulo, p.anolancamento, p.diretor, p.elenco, p.sinopse, p.duracao " +"FROM TIMELESS_PROGRAMA p " +"INNER JOIN TIMELESS_ALLOWEDIN a ON p.idprograma = a.idPrograma " + "WHERE a.codigoPaisID = @codigoPaisID";
+
+    - Consultar os programas populares 
+    Implementado com uma view 
