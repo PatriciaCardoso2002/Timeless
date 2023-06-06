@@ -102,18 +102,6 @@ O ficheiro *triggers.sql* contém o código SQL dos *triggers* criados sobre a b
  - Trigger para enviar lembretes de pagamento: Fazer uma simulação do envio de um email para o campo [email] na entidade TIMELESS_CONTA quando o campo [dataPagamento] na entidade TIMELESS_PAGAMENTO estiver a 7 dias ou menos de distância da data atual.
  Duas formas de implementar isto seria enviar um email à pessoa, lembrando-a da data de pagamento, no entanto, os emails que temos na base de dados não são reais. Então, a alternativa que nos pareceu mais correta foi criar uma tabela chamada TIMELESS_LEMBRETES. Afinal de contas, não foi possível criar a entidade TIMELESS_LEMBRETES, porque ela ia estar relacionada com a entidade TIMELESS_PAGAMENTO que é uma entidade fraca. Então, optámos por fazer uma simulação de envio de um email.
 
-### Stored Procedures
-
-O ficheiro *sps.sql* contém o código SQL de alguns *stored procedures* criados sobre a base de dados:
-
- - Criar um evento;
- - Criar um concerto e um soundcheck para uma determinada banda;
- - Apagar um evento dado o id do mesmo;
- - Apagar um concerto dado o id do mesmo;
- - Editar um evento.
-
-
-
 ### User Defined Functions
 
 O ficheiro *udfs.sql* contém o código SQL de algumas *UDFs* criadas sobre a base de dados:
@@ -121,6 +109,15 @@ O ficheiro *udfs.sql* contém o código SQL de algumas *UDFs* criadas sobre a ba
 - Dado um id de um funcionário, devolve todas as parcerias por ele geridas.
 - Dado o id de uma Conta, devolve o tipo da Subscrição do utilizador.
 
+### Stored Procedures
+
+O ficheiro *sps.sql* contém o código SQL da *Stored Procedure* criada sobre a base de dados:
+
+- Receber todas as músicas  pertencentes a uma Soundtrack de um Programa.
+
+Na interface de interação com a base de dados, tanto para as UDFs usadas, como para a SP, houve a criação de uma camada de abstração entre a base de dados e as operações que podem pôr em risco a integridade da mesma (operações que interagem diretamente com o conteúdo da base de dados).
+
+Também foi
 ### Interface
 
 Interface e formulários de interação construidos em Windows Forms Application, em C#.
