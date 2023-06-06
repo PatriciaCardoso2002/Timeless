@@ -16,3 +16,7 @@ Houve alterações na maneira que o utilizador interage com o Forms:
 - depois do utilizador ter criado a sua conta, na página que permite verificar o seu tipo de subscrição, ele introduz o nome em vez do id.
 
 Mas apesar de se introduzir os nomes ao invés dos IDs, a lógica interna de interação com a Base de Dados interliga/associa esse nome ao id correspondente do funcionário ou da conta (utilizador).
+
+Adicionámos uma funcionalidade "Programas Populares" disponível para os utilizadores que já tinham conta e para aqueles que a acabaram de criar. Esta funcionalidade foi implementada através da view ProgramasPopulares.
+
+Adicionámos uma stored procedure "GetProgramSoundtracks" e implementámos essa funcionalidade na tela do utilizador que já tem conta na Timeless. Depois de introduzir o nome do programa é mostrada a soundtrack. Apesar de ser introduzido o nome, a lógica da interação da base de dados com o Forms é através do id do Programa.

@@ -46,3 +46,4 @@ C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\runtimes\win\lib\
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.MenuFuncionario.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.GestaoParcerias.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.ProgramasPopulares.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.InserirPrograma.resources
