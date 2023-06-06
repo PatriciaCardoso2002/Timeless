@@ -1,28 +1,28 @@
---Trigger para calcular a média de avaliações de um programa:
---Ao receber uma nova avaliação para um programa, esse trigger pode ser acionado para calcular automaticamente
---a média das avaliações atribuídas ao programa, atualizando assim o valor da classificação média.
+--Trigger para calcular a mï¿½dia de avaliaï¿½ï¿½es de um programa:
+--Ao receber uma nova avaliaï¿½ï¿½o para um programa, esse trigger pode ser acionado para calcular automaticamente
+--a mï¿½dia das avaliaï¿½ï¿½es atribuï¿½das ao programa, atualizando assim o valor da classificaï¿½ï¿½o mï¿½dia.
 
 --Precisamos de criar uma coluna ClassificacaoMedia na tabela TIMELESS_PROGRAMA
 
----- Adicionar a coluna classificacaoMedia à tabela TIMELESS_PROGRAMA
+---- Adicionar a coluna classificacaoMedia ï¿½ tabela TIMELESS_PROGRAMA
 --ALTER TABLE TIMELESS_PROGRAMA
 --ADD classificacaoMedia FLOAT;
 
--- --Trigger para calcular a média das avaliações de um programa
+-- --Trigger para calcular a mï¿½dia das avaliaï¿½ï¿½es de um programa
 --CREATE TRIGGER calcularMediaAvaliacoes
 --ON TIMELESS_CONTA_AVALIACAO
 --AFTER INSERT, UPDATE, DELETE
 --AS
 --BEGIN
---    -- Variável para armazenar a média das avaliações
+--    -- Variï¿½vel para armazenar a mï¿½dia das avaliaï¿½ï¿½es
 --    DECLARE @media FLOAT;
 
---    -- Atualizar a tabela TIMELESS_PROGRAMA com a média das avaliações
+--    -- Atualizar a tabela TIMELESS_PROGRAMA com a mï¿½dia das avaliaï¿½ï¿½es
 --    UPDATE p
 --    SET p.classificacaoMedia = a.media
 --    FROM TIMELESS_PROGRAMA p
 --    INNER JOIN (
---        -- Subconsulta para calcular a média das avaliações
+--        -- Subconsulta para calcular a mï¿½dia das avaliaï¿½ï¿½es
 --        SELECT idprograma, AVG(av.classificacao) AS media
 --        FROM TIMELESS_CONTA_AVALIACAO ca
 --        INNER JOIN TIMELESS_AVALIACAO av ON ca.idAvaliacao = av.idavaliacao
@@ -38,35 +38,30 @@
 
 --SELECT * FROM TIMELESS_PROGRAMA;
 
-
-
-
-
-
---Após a criação do trigger, sempre que uma nova avaliação for inserida na tabela TIMELESS_AVALIACAO, 
---o trigger calculará a média das classificações para o programa correspondente e atualizará a coluna classificacaoMedia
+--Apï¿½s a criaï¿½ï¿½o do trigger, sempre que uma nova avaliaï¿½ï¿½o for inserida na tabela TIMELESS_AVALIACAO, 
+--o trigger calcularï¿½ a mï¿½dia das classificaï¿½ï¿½es para o programa correspondente e atualizarï¿½ a coluna classificacaoMedia
 --na tabela TIMELESS_PROGRAMA com o valor calculado.
 
 
---Trigger para atualizar a quantidade de programas num país:
---Quando um programa é associado a um novo país de exibição, esse trigger pode ser acionado para atualizar automaticamente a contagem de programas disponíveis nesse país.
+--Trigger para atualizar a quantidade de programas num paï¿½s:
+--Quando um programa ï¿½ associado a um novo paï¿½s de exibiï¿½ï¿½o, esse trigger pode ser acionado para atualizar automaticamente a contagem de programas disponï¿½veis nesse paï¿½s.
 
---Preciso de uma nova coluna na tabela TIMELESS_ALLOWEDIN chamada quantidadeProgramas para armazenar a quantidade de programas exibida em um determinado país
+--Preciso de uma nova coluna na tabela TIMELESS_ALLOWEDIN chamada quantidadeProgramas para armazenar a quantidade de programas exibida em um determinado paï¿½s
 --ALTER TABLE TIMELESS_ALLOWEDIN ADD quantidadeProgramas INT;
 
-------Criação do Trigger
+------Criaï¿½ï¿½o do Trigger
 --CREATE TRIGGER atualizarQuantidadeProgramas
 --ON TIMELESS_ALLOWEDIN
-----posso colocar também depois de fazer o update ou depois de fazer o delete 
+----posso colocar tambï¿½m depois de fazer o update ou depois de fazer o delete 
 --AFTER INSERT 
 --AS
 --BEGIN
---    -- Obtém o código do país inserido
+--    -- Obtï¿½m o cï¿½digo do paï¿½s inserido
 --    DECLARE @codigo_pais INT;
     
 --    SELECT @codigo_pais = codigoPaisID FROM inserted;
     
---    -- Atualiza a quantidade de programas para o país inserido
+--    -- Atualiza a quantidade de programas para o paï¿½s inserido
 --    UPDATE TIMELESS_ALLOWEDIN
 --    SET quantidadeProgramas = (
 --        SELECT COUNT(*)
@@ -76,7 +71,7 @@
 --    WHERE codigoPaisID = @codigo_pais;
 --END;
 
---Verificação do funcionamento do trigger 
+--Verificaï¿½ï¿½o do funcionamento do trigger 
 --SELECT * FROM TIMELESS_ALLOWEDIN;
 --INSERT INTO TIMELESS_ALLOWEDIN(codigoPaisID,idPrograma)
 --VALUES (1,2);
@@ -92,17 +87,17 @@
 ---SELECT * FROM TIMELESS_PROGRAMA;
 
 --Ou seja
---Quando há uma nova inserção na tabela TIMELESS_ALLOWEDIN, o trigger é acionado e obtém o código do país e o id do programa inserido e 
---atualiza a coluna quantidadeProgramas na tabela TIMELESS_ALLOWEDIN com o número de programas 
---disponíveis nesse país
+--Quando hï¿½ uma nova inserï¿½ï¿½o na tabela TIMELESS_ALLOWEDIN, o trigger ï¿½ acionado e obtï¿½m o cï¿½digo do paï¿½s e o id do programa inserido e 
+--atualiza a coluna quantidadeProgramas na tabela TIMELESS_ALLOWEDIN com o nï¿½mero de programas 
+--disponï¿½veis nesse paï¿½s
 
 --Trigger para enviar lembretes de pagamento:
----- Fazer uma simulação do envio de um email para o campo [email] na entidade TIMELESS_CONTA quando o campo [dataPagamento] na entidade TIMELESS_PAGAMENTO
----- estiver a 7 dias ou menos de distância da data atual.
+---- Fazer uma simulaï¿½ï¿½o do envio de um email para o campo [email] na entidade TIMELESS_CONTA quando o campo [dataPagamento] na entidade TIMELESS_PAGAMENTO
+---- estiver a 7 dias ou menos de distï¿½ncia da data atual.
 
---Duas formas de implementar isto seria enviar um email à pessoa lembrando-a da data de pagamento, no entanto os emails que tenho na base de dados 
---não são reais, então a alternativa que me parece mais correta é criar uma tabela chamada TIMELESS_LEMBRETES. Não é possível criar a entidade TIMELESS_LEMBRETES
---porque ela ia estar relacionada com a entidade TIMELESS_PAGAMENTO que é uma entidade fraca. Então vamos fazer uma simulação de envio de um email.
+--Duas formas de implementar isto seria enviar um email ï¿½ pessoa lembrando-a da data de pagamento, no entanto os emails que tenho na base de dados 
+--nï¿½o sï¿½o reais, entï¿½o a alternativa que me parece mais correta ï¿½ criar uma tabela chamada TIMELESS_LEMBRETES. Nï¿½o ï¿½ possï¿½vel criar a entidade TIMELESS_LEMBRETES
+--porque ela ia estar relacionada com a entidade TIMELESS_PAGAMENTO que ï¿½ uma entidade fraca. Entï¿½o vamos fazer uma simulaï¿½ï¿½o de envio de um email.
 
 ----Criar trigger
 --CREATE TRIGGER enviarLembrete 
@@ -110,16 +105,16 @@
 --AFTER INSERT, UPDATE
 --AS
 --BEGIN
---    -- Verificar se houve alterações na data de pagamento ou se é uma inserção
+--    -- Verificar se houve alteraï¿½ï¿½es na data de pagamento ou se ï¿½ uma inserï¿½ï¿½o
 --    IF EXISTS (SELECT 1 FROM inserted) 
 --    BEGIN
---        -- Verificar as contas que têm data de pagamento em 7 dias ou menos
+--        -- Verificar as contas que tï¿½m data de pagamento em 7 dias ou menos
 --        DECLARE @DataAtual date;
 --        SET @DataAtual = GETDATE();
 --        DECLARE @DataLembrete date;
 --        SET @DataLembrete = DATEADD(DAY, -7, @DataAtual);
 
---        -- Obter os registos que atendem à condição
+--        -- Obter os registos que atendem ï¿½ condiï¿½ï¿½o
 --        SELECT c.email, p.dataPagamento
 --        INTO #TempRegistos
 --        FROM TIMELESS_CONTA c
@@ -142,16 +137,16 @@
 --                'Atenciosamente,' + CHAR(13) + CHAR(10) +
 --                'Timeless';
 
---            -- Exibir o conteúdo do email no resultado da consulta
+--            -- Exibir o conteï¿½do do email no resultado da consulta
 --            PRINT 'Assunto: ' + @Assunto;
---            PRINT 'Destinatário: ' + @EmailCliente;
+--            PRINT 'Destinatï¿½rio: ' + @EmailCliente;
 --            PRINT @CorpoEmail;
 
---            -- Remover o registro processado da tabela temporária
+--            -- Remover o registro processado da tabela temporï¿½ria
 --            DELETE FROM #TempRegistos WHERE email = @EmailCliente AND dataPagamento = @DataPagamento;
 --        END;
 
---        -- Limpar a tabela temporária
+--        -- Limpar a tabela temporï¿½ria
 --        DROP TABLE #TempRegistos;
 --    END
 --END;
@@ -162,6 +157,5 @@
 --INSERT INTO TIMELESS_PAGAMENTO (idCliente, valorPago, dataPagamento, metodoId)
 --VALUES (5, 100, '2023-05-31', 1);
 
-
+SELECT * FROM TIMELESS_FUNCIONARIO;
 SELECT * FROM TIMELESS_CONTA;
-SELECT * FROM TIMELESS_SUBSCRICAO;

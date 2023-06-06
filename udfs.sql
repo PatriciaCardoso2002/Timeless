@@ -12,7 +12,7 @@
 
 --Para usar a udf numa consulta:
  --DECLARE @idFuncionario INT;
- --SET @idFuncionario = 2; -- Substitua 123 pelo ID do funcion·rio desejado
+ --SET @idFuncionario = 2; -- Substitua 123 pelo ID do funcion√°rio desejado
 
  --SELECT *
  --FROM dbo.ObterTodasParceriasNegociadasFuncionario(@idFuncionario);
