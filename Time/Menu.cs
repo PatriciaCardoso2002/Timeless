@@ -34,7 +34,7 @@ namespace Time
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GestaoContas frm = new GestaoContas(CN);
+            MenuFuncionario frm = new MenuFuncionario(CN);
             //1 modeless dialog, Show()
             frm.Show();
         }

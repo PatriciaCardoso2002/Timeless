@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace Time
 {
-
-    public partial class MenuDepoisCriarConta : Form
+    public partial class MenuFuncionario : Form
     {
-        private SqlConnection CN;
-        public MenuDepoisCriarConta(SqlConnection connection)
+        private SqlConnection CN; 
+        public MenuFuncionario(SqlConnection connection)
         {
             CN = connection;
             InitializeComponent();
@@ -23,26 +23,15 @@ namespace Time
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EscolherSubscricao frm = new EscolherSubscricao(CN);
+            GestaoContas frm = new GestaoContas(CN);
             //1 modeless dialog, Show()
             frm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ProgramasPorPais frm = new ProgramasPorPais(CN);
+            GestaoParcerias frm = new GestaoParcerias(CN);
             //1 modeless dialog, Show()
-            frm.Show();
-        }
-
-        private void MenuDepoisCriarConta_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ProgramasPopulares frm = new ProgramasPopulares(CN);
             frm.Show();
         }
     }

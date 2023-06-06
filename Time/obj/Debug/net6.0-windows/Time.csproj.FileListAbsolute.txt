@@ -35,3 +35,14 @@ C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.EscolherSubs
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.MenuDepoisCriarConta.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.ProgramasPorPais.resources
 C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.GestaoContas.resources
+C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\Microsoft.Win32.SystemEvents.dll
+C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\ScreenCapturer.dll
+C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\SharpDX.dll
+C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\SharpDX.Direct3D11.dll
+C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\SharpDX.DXGI.dll
+C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\System.Drawing.Common.dll
+C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\PatriciaCardoso\Desktop\Time\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.MenuFuncionario.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.GestaoParcerias.resources
+C:\Users\PatriciaCardoso\Desktop\Time\obj\Debug\net6.0-windows\Time.ProgramasPopulares.resources

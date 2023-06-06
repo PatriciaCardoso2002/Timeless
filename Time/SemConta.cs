@@ -50,6 +50,7 @@ namespace Time
             cmd.Parameters.AddWithValue("@progsFavoritos", DBNull.Value);
             cmd.Parameters.AddWithValue("@idFuncionario", int.Parse(textBox7.Text));
             cmd.ExecuteNonQuery();
+
             MessageBox.Show("Successfully created");
 
             MenuDepoisCriarConta frm = new MenuDepoisCriarConta(CN);

@@ -14,7 +14,6 @@ namespace Time
     public partial class VerificarExistenciaConta : Form
     {
         private SqlConnection CN;
-        private List<int> tamanhosIDConta = new List<int>() { 1, 2, 3 }; // Tamanhos esperados do ID da conta
 
         public VerificarExistenciaConta(SqlConnection connection)
         {
@@ -24,39 +23,44 @@ namespace Time
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            int idConta = 0;
 
-            if (int.TryParse(textBox1.Text, out idConta))
+        }
+
+        private void VerificarExistenciaConta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string nomeConta = textBox1.Text.Trim();
+
+            if (!string.IsNullOrEmpty(nomeConta))
             {
                 CN.Open();
 
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM TIMELESS_CONTA WHERE idConta = @idConta", CN))
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM TIMELESS_CONTA WHERE nome = @nomeConta", CN))
                 {
-                    command.Parameters.AddWithValue("@idConta", idConta);
+                    command.Parameters.AddWithValue("@nomeConta", nomeConta);
 
                     int count = (int)command.ExecuteScalar();
 
                     if (count > 0)
                     {
-                        ComConta frm = new ComConta(CN);
-                        frm.Show();
+                        // Redirecionar para a tela ComConta
+                        ComConta comContaForm = new ComConta(CN);
+                        comContaForm.Show();
                     }
                     else
                     {
-                        SemConta form = new SemConta(CN);
-                        form.Show();
+                        // Redirecionar para a tela SemConta
+                        SemConta semContaForm = new SemConta(CN);
+                        semContaForm.Show();
                     }
                 }
 
                 CN.Close();
             }
-        }
-
-
-
-        private void VerificarExistenciaConta_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

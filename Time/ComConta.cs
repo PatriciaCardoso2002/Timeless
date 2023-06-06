@@ -45,5 +45,11 @@ namespace Time
             //1 modeless dialog, Show()
             frm.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ProgramasPopulares frm = new ProgramasPopulares(CN);
+            frm.Show();
+        }
     }
 }
